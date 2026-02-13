@@ -1,0 +1,10 @@
+=== Hybrid Model (Embeddings + RBF SVM) ===
+
+              precision    recall  f1-score   support
+
+    NON_HATE       0.93      0.71      0.81      5673
+        HATE       0.42      0.80      0.55      1458
+
+    accuracy                           0.73      7131
+   macro avg       0.67      0.76      0.68      7131
+weighted avg       0.83      0.73      0.75      7131
