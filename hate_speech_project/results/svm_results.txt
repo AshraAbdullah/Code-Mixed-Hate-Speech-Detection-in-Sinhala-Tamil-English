@@ -1,0 +1,22 @@
+=== Linear SVM ===
+
+              precision    recall  f1-score   support
+
+    NON_HATE       0.88      0.93      0.91      5673
+        HATE       0.66      0.50      0.57      1458
+
+    accuracy                           0.85      7131
+   macro avg       0.77      0.72      0.74      7131
+weighted avg       0.83      0.85      0.84      7131
+
+
+=== Linear SVM (Balanced) ===
+
+              precision    recall  f1-score   support
+
+    NON_HATE       0.91      0.84      0.87      5673
+        HATE       0.51      0.67      0.58      1458
+
+    accuracy                           0.80      7131
+   macro avg       0.71      0.75      0.73      7131
+weighted avg       0.83      0.80      0.81      7131
