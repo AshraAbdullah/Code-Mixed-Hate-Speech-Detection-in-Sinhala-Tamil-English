@@ -1,0 +1,22 @@
+=== Logistic Regression Baseline ===
+
+              precision    recall  f1-score   support
+
+    NON_HATE       0.86      0.97      0.91      5673
+        HATE       0.74      0.36      0.49      1458
+
+    accuracy                           0.84      7131
+   macro avg       0.80      0.67      0.70      7131
+weighted avg       0.83      0.84      0.82      7131
+
+
+=== Logistic Regression (Balanced) ===
+
+              precision    recall  f1-score   support
+
+    NON_HATE       0.92      0.83      0.87      5673
+        HATE       0.52      0.73      0.61      1458
+
+    accuracy                           0.81      7131
+   macro avg       0.72      0.78      0.74      7131
+weighted avg       0.84      0.81      0.82      7131
