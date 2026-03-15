@@ -49,24 +49,20 @@ function App() {
     const [active, setActive] = useState("motivation")
 
     return (
-      <div className="mb-20">
-        <div className="flex justify-center gap-6 mb-10">
+      <div className="mb-12 md:mb-20">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
           <button
             onClick={() => setActive("motivation")}
-            className={`px-6 py-3 rounded-full font-medium transition 
-          ${active === "motivation"
-                ? "bg-teal-700 text-white"
-                : "bg-white border border-teal-200 text-teal-700 hover:bg-teal-50"}`}
+            className={`px-8 py-4 rounded-full font-medium transition text-base
+              ${active === "motivation" ? "bg-teal-700 text-white" : "bg-white border border-teal-200 text-teal-700 hover:bg-teal-50"}`}
           >
             Motivation
           </button>
 
           <button
             onClick={() => setActive("problem")}
-            className={`px-6 py-3 rounded-full font-medium transition 
-          ${active === "problem"
-                ? "bg-teal-700 text-white"
-                : "bg-white border border-teal-200 text-teal-700 hover:bg-teal-50"}`}
+            className={`px-8 py-4 rounded-full font-medium transition text-base
+              ${active === "problem" ? "bg-teal-700 text-white" : "bg-white border border-teal-200 text-teal-700 hover:bg-teal-50"}`}
           >
             Problem Statement
           </button>
@@ -77,27 +73,19 @@ function App() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="bg-white p-12 rounded-2xl shadow-lg max-w-4xl mx-auto text-gray-700 leading-relaxed"
+          className="bg-white p-8 md:p-12 rounded-2xl shadow-lg max-w-4xl mx-auto text-gray-700 leading-relaxed text-base md:text-lg"
         >
           {active === "motivation" ? (
-            <>
-              Hate speech in Sri Lanka has intensified through code-mixed
-              Sinhala–Tamil–English content.
-              Events such as the 2018 riots, 2019 Easter attacks, and 2022 unrest
-              demonstrate how rapidly toxic narratives spread online.
-              Existing moderation systems fail to capture local linguistic nuance.
-            </>
+            <>Hate speech in Sri Lanka has intensified through code-mixed Sinhala–Tamil–English content. Events such as the 2018 riots, 2019 Easter attacks, and 2022 unrest demonstrate how rapidly toxic narratives spread online. Existing moderation systems fail to capture local linguistic nuance.</>
           ) : (
             <>
               Current detectors are English-centric and struggle with:
-              <ul className="mt-6 space-y-3">
-                <li>• Sinhala–Tamil–English code-mixing</li>
-                <li>• Slang, sarcasm, emojis & Romanized text</li>
-                <li>• Low-resource language constraints</li>
+              <ul className="mt-6 space-y-3 list-disc pl-5">
+                <li>Sinhala–Tamil–English code-mixing</li>
+                <li>Slang, sarcasm, emojis & Romanized text</li>
+                <li>Low-resource language constraints</li>
               </ul>
-              <p className="mt-6 font-medium text-teal-700">
-                Result: High false negatives and unsafe digital environments.
-              </p>
+              <p className="mt-6 font-medium text-teal-700">Result: High false negatives and unsafe digital environments.</p>
             </>
           )}
         </motion.div>
@@ -107,31 +95,21 @@ function App() {
 
   function ObjectivesSection() {
     return (
-      <div className="mb-24">
-        <div className="flex items-center justify-center gap-3 mb-12">
+      <div className="mb-16 md:mb-24">
+        <div className="flex items-center justify-center gap-3 mb-8 md:mb-12">
           <Target className="w-8 h-8 text-teal-700" />
-          <h3 className="text-4xl font-semibold text-teal-900">Objectives</h3>
+          <h3 className="text-3xl md:text-4xl font-semibold text-teal-900">Objectives</h3>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10">
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            className="bg-white p-10 rounded-2xl shadow-md border-l-4 border-teal-600"
-          >
-            <h4 className="text-xl font-semibold text-teal-700 mb-4">
-              Main Objective
-            </h4>
+        <div className="grid md:grid-cols-2 gap-8">
+          <motion.div whileHover={{ scale: 1.02 }} className="bg-white p-8 md:p-10 rounded-2xl shadow-md border-l-4 border-teal-600">
+            <h4 className="text-lg md:text-xl font-semibold text-teal-700 mb-4">Main Objective</h4>
             Develop a robust web-based hate speech detection system for Sinhala–Tamil–English code-mixed text using advanced ML & NLP.
           </motion.div>
 
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            className="bg-white p-10 rounded-2xl shadow-md"
-          >
-            <h4 className="text-xl font-semibold text-teal-700 mb-4">
-              Specific Goals
-            </h4>
-            <ul className="space-y-3 text-gray-700">
+          <motion.div whileHover={{ scale: 1.02 }} className="bg-white p-8 md:p-10 rounded-2xl shadow-md">
+            <h4 className="text-lg md:text-xl font-semibold text-teal-700 mb-4">Specific Goals</h4>
+            <ul className="space-y-3 text-gray-700 text-base">
               <li>• Build unified 47K+ dataset</li>
               <li>• Compare Tier-1, Tier-2 & Tier-3 models</li>
               <li>• Propose CM-SCALE framework</li>
@@ -145,20 +123,16 @@ function App() {
 
   function ScopeSection() {
     return (
-      <div>
-        <h3 className="text-4xl font-semibold text-center text-teal-900 mb-12">
-          Project Scope
-        </h3>
+      <div className="mb-12">
+        <h3 className="text-3xl md:text-4xl font-semibold text-center text-teal-900 mb-10">Project Scope</h3>
 
-        <div className="grid md:grid-cols-2 gap-10">
-
-          {/* In Scope */}
-          <div className="bg-green-50 p-10 rounded-2xl shadow-md">
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="bg-green-50 p-8 md:p-10 rounded-2xl shadow-md">
             <div className="flex items-center gap-3 mb-6">
               <CheckCircle2 className="text-green-600 w-6 h-6" />
               <h4 className="text-xl font-semibold text-green-700">In Scope</h4>
             </div>
-            <ul className="space-y-3 text-gray-700">
+            <ul className="space-y-3 text-gray-700 text-base">
               <li>• Sinhala–Tamil–English code-mixed text</li>
               <li>• Binary classification</li>
               <li>• Three-tier modeling (CM-SCALE focus)</li>
@@ -166,18 +140,16 @@ function App() {
             </ul>
           </div>
 
-          {/* Out of Scope */}
-          <div className="bg-red-50 p-10 rounded-2xl shadow-md">
+          <div className="bg-red-50 p-8 md:p-10 rounded-2xl shadow-md">
             <div className="flex items-center gap-3 mb-6">
               <XCircle className="text-red-600 w-6 h-6" />
               <h4 className="text-xl font-semibold text-red-700">Out of Scope</h4>
             </div>
-            <ul className="space-y-3 text-gray-700">
+            <ul className="space-y-3 text-gray-700 text-base">
               <li>• Image/audio hate detection</li>
               <li>• Full production moderation infrastructure</li>
             </ul>
           </div>
-
         </div>
       </div>
     )
@@ -187,81 +159,22 @@ function App() {
     const [active, setActive] = useState(0)
 
     const steps = [
-      {
-        title: "Datasets",
-        icon: <Database className="w-5 h-5" />,
-        content: (
-          <>
-            <ul className="space-y-3">
-              <li>• SOLD dataset (~10,000 Sinhala Twitter posts)</li>
-              <li>• Dravidian code-mixed datasets (Tamil-English)</li>
-              <li>• Custom Instagram comments (~1,000+)</li>
-            </ul>
-            <p className="mt-4 font-semibold text-teal-700">
-              Unified corpus: ~47,000 samples (70/15/15 split)
-            </p>
-          </>
-        )
-      },
-      {
-        title: "Annotation",
-        icon: <FileCheck2 className="w-5 h-5" />,
-        content: (
-          <>
-            <p>Binary classification: Hate vs Non-Hate</p>
-            <p>2 annotators + 1 adjudicator</p>
-            <p>Target Cohen’s Kappa &gt; 0.7</p>
-            <p>Only public data, PII removed</p>
-          </>
-        )
-      },
-      {
-        title: "Preprocessing",
-        icon: <Settings2 className="w-5 h-5" />,
-        content: (
-          <>
-            <ul className="space-y-3">
-              <li>• Token-level language tagging (si/ta/en)</li>
-              <li>• Romanized normalization</li>
-              <li>• Preserve emojis & hashtags</li>
-              <li>• Class imbalance augmentation</li>
-            </ul>
-          </>
-        )
-      },
-      {
-        title: "Modeling Framework",
-        icon: <BrainCircuit className="w-5 h-5" />,
-        content: (
-          <>
-            <div className="space-y-4">
-              <div>
-                <strong>Tier 1 – Baselines:</strong> TF-IDF + SVM / Logistic Regression
-              </div>
-              <div>
-                <strong>Tier 2 – Hybrid:</strong> LaBSE / MPNet + Cost-sensitive SVM
-              </div>
-              <div className="bg-teal-100 p-5 rounded-2xl">
-                <strong className="text-teal-800">Tier 3 – CM-SCALE (Proposed):</strong><br />
-                XLM-R + LoRA fine-tuning<br />
-                Focal Loss + Code-mix-aware prompts + Contrastive learning
-              </div>
-            </div>
-          </>
-        )
-      }
+      { title: "Datasets", icon: <Database className="w-5 h-5" />, content: <>Aggregated 47,000+ real-world Sinhala–Tamil–English code-mixed comments from Facebook, Instagram, and YouTube, ensuring diversity and representativeness.</> },
+      { title: "Annotation", icon: <FileCheck2 className="w-5 h-5" />, content: <>Expert annotators labeled data for hate speech, non-hate, and ambiguous cases, with inter-annotator agreement checks for quality.</> },
+      { title: "Preprocessing", icon: <Settings2 className="w-5 h-5" />, content: <>Text normalization, emoji/slang handling, code-mix detection, and Romanization conversion to prepare data for modeling.</> },
+      { title: "Modeling Framework", icon: <BrainCircuit className="w-5 h-5" />, content: <>Compared traditional ML, deep learning, and transformer models; proposed CM-SCALE (fine-tuned XLM-R) for best performance.</> }
     ]
 
     return (
       <div>
-        {/* Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        {/* Buttons - Stack on mobile */}
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 md:mb-12">
           {steps.map((step, index) => (
             <button
               key={index}
               onClick={() => setActive(index)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition 
-            ${active === index
+              className={`flex items-center gap-2 px-5 md:px-6 py-3 md:py-3.5 rounded-full text-sm md:text-base font-medium transition 
+                ${active === index
                   ? "bg-teal-700 text-white shadow-lg"
                   : "bg-white text-teal-700 border border-teal-200 hover:bg-teal-50"}`}
             >
@@ -271,19 +184,21 @@ function App() {
           ))}
         </div>
 
-        {/* Content */}
+        {/* Content - Better padding on mobile */}
         <motion.div
           key={active}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="max-w-3xl mx-auto bg-white p-10 rounded-2xl shadow-md text-gray-700"
+          className="max-w-3xl mx-auto bg-white p-6 md:p-10 rounded-2xl shadow-md text-gray-700 text-base md:text-lg"
         >
           {steps[active].content}
         </motion.div>
       </div>
     )
   }
+
+
 
 
   return (
@@ -354,12 +269,6 @@ function App() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-5 justify-center px-6">
-          <button
-            onClick={() => setShowDemo(true)}
-            className="bg-teal-600 hover:bg-teal-900 text-white font-semibold text-lg md:text-xl px-12 py-4 rounded-2xl transition-all shadow-lg"
-          >
-            Try Live Demo
-          </button>
           <a
             href="#results"
             className="border-2 border-teal-700 text-teal-700 hover:bg-teal-600 hover:text-white font-semibold text-lg md:text-xl px-12 py-4 rounded-2xl transition-all"
@@ -369,16 +278,14 @@ function App() {
         </div>
       </section>
 
-      {/* ==================== ABOUT SECTION ==================== */}
-      <section id="about" className="bg-gradient-to-b from-white to-teal-50 py-24">
-        <div className="max-w-6xl mx-auto px-8">
+      {/* ==================== ABOUT SECTION (Mobile Responsive) ==================== */}
+      <section id="about" className="bg-gradient-to-b from-white to-teal-50 py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-6 md:px-8">
 
           {/* Heading */}
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Shield className="w-10 h-10 text-teal-700" />
-              <h2 className="text-5xl font-bold text-teal-900">About the Project</h2>
-            </div>
+          <div className="flex items-center justify-center gap-3 mb-12 md:mb-16">
+            <Shield className="w-9 h-9 md:w-10 md:h-10 text-teal-700" />
+            <h2 className="text-4xl md:text-5xl font-bold text-teal-900">About the Project</h2>
           </div>
 
           <AboutTabs />
@@ -391,21 +298,21 @@ function App() {
       </section>
 
       {/* ==================== RESEARCH JOURNEY ==================== */}
-      <section id="research" className="py-24 bg-gradient-to-b from-white to-teal-50">
-        <div className="max-w-6xl mx-auto px-8">
+      <section id="research" className="py-16 md:py-24 bg-gradient-to-b from-white to-teal-50">
+        <div className="max-w-6xl mx-auto px-6 md:px-8">
 
-          {/* Heading */}
-          <div className="flex items-center gap-4 justify-center mb-6">
-            <BookOpen className="w-10 h-10 text-teal-600" />
-            <h2 className="text-5xl font-bold text-teal-900">Research Journey</h2>
+          {/* Heading with Icon */}
+          <div className="flex items-center justify-center gap-3 mb-8 md:mb-12">
+            <BookOpen className="w-9 h-9 md:w-10 md:h-10 text-teal-600" />
+            <h2 className="text-4xl md:text-5xl font-bold text-teal-900">Research Journey</h2>
           </div>
 
-          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-16">
+          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12 text-base md:text-lg px-4">
             We reviewed 24 papers (2019–2025) and grouped them into 5 categories to identify gaps in Sinhala-Tamil code-mixed hate speech detection.
           </p>
 
-          {/* ================= GROUP CARDS ================= */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+          {/* Group Cards - Stack on mobile */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
             {[
               { g: "G1", title: "Traditional ML", desc: "SVM, Logistic Regression, TF-IDF (66–71% accuracy)" },
               { g: "G2", title: "Deep Learning", desc: "CNN, LSTM, BiGRU (F1 up to 0.93)" },
@@ -419,170 +326,150 @@ function App() {
               >
                 <div className="text-4xl font-bold text-teal-600 mb-3">{group.g}</div>
                 <h4 className="text-2xl font-semibold text-teal-800 mb-3">{group.title}</h4>
-                <p className="text-gray-700">{group.desc}</p>
+                <p className="text-gray-700 text-base">{group.desc}</p>
               </div>
             ))}
           </div>
 
-          {/* ================= RESEARCH GAP ================= */}
-          <div className="mb-20">
-            <h3 className="text-3xl font-semibold text-teal-900 mb-8 text-center">
-              Identified Research Gaps
-            </h3>
-
-            <div className="bg-white p-10 rounded-2xl shadow-lg border-l-4 border-teal-600 max-w-5xl mx-auto">
-              <ul className="space-y-4 text-gray-700">
-                <li>• Most datasets are small, imbalanced, and platform-specific (YouTube/Twitter only)</li>
+          {/* Research Gap */}
+          <div className="mb-16">
+            <h3 className="text-3xl font-semibold text-teal-900 mb-8 text-center">Identified Research Gaps</h3>
+            <div className="bg-white p-8 md:p-10 rounded-2xl shadow-md border-l-4 border-teal-600">
+              <ul className="space-y-4 text-gray-700 text-base">
+                <li>• Most datasets are small, imbalanced, and platform-specific</li>
                 <li>• Very few studies handle full Sinhala-Tamil-English code-mixing</li>
-                <li>• Lack of joint Sinhala-Tamil models and low-resource adaptations</li>
-                <li>• Limited exploration of sarcasm, slang, emojis, and implicit hate</li>
+                <li>• Lack of joint Sinhala-Tamil models</li>
+                <li>• Limited exploration of sarcasm, slang, emojis</li>
                 <li>• No real-time deployable system with ethical considerations</li>
               </ul>
             </div>
           </div>
 
-          {/* ================= INSIGHTS ================= */}
-          <div className="mb-20">
-            <h3 className="text-3xl font-semibold text-teal-900 mb-8 text-center">
-              Key Research Insights
-            </h3>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <div className="bg-teal-50 p-8 rounded-2xl shadow-md hover:shadow-lg transition">
-                <p className="text-gray-700">
-                  Transformer-based models (especially XLM-R and MuRIL) perform significantly better on code-mixed data than traditional ML.
-                </p>
-              </div>
-
-              <div className="bg-teal-50 p-8 rounded-2xl shadow-md hover:shadow-lg transition">
-                <p className="text-gray-700">
-                  Low-resource techniques like LoRA, focal loss, and contrastive learning are highly effective for Sinhala and Tamil.
-                </p>
-              </div>
+          {/* Insights */}
+          <div className="mb-16">
+            <h3 className="text-3xl font-semibold text-teal-900 mb-8 text-center">Key Research Insights</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-teal-50 p-8 rounded-2xl shadow-md">Transformer-based models perform significantly better on code-mixed data.</div>
+              <div className="bg-teal-50 p-8 rounded-2xl shadow-md">Low-resource techniques like LoRA and contrastive learning are highly effective.</div>
             </div>
           </div>
 
-          {/* Divider */}
-          <div className="h-px bg-teal-200 my-16"></div>
-
-          {/* ================= COMPARISON TABLE ================= */}
-          <div className="bg-white rounded-2xl p-10 shadow-xl border border-teal-100">
-            <h3 className="text-2xl font-semibold text-teal-900 mb-8 text-center">
-              What Our Study Adds (Comparison)
-            </h3>
-
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse text-sm">
-                <thead>
-                  <tr className="bg-teal-800 text-white">
-                    <th className="p-4 text-left">Factors</th>
-                    <th className="p-4">G1</th>
-                    <th className="p-4">G2</th>
-                    <th className="p-4">G3</th>
-                    <th className="p-4">G4</th>
-                    <th className="p-4">G5</th>
-                    <th className="p-4 bg-teal-600 font-bold">Our Study</th>
+          {/* Comparison Table - Mobile Friendly */}
+          <div className="bg-white rounded-2xl p-6 md:p-10 shadow-md border border-teal-100 overflow-x-auto">
+            <h3 className="text-2xl font-semibold text-teal-900 mb-8 text-center">What Our Study Adds (Comparison)</h3>
+            <table className="w-full border-collapse text-sm min-w-[600px]">
+              {/* Table content remains same as before */}
+              <thead>
+                <tr className="bg-teal-800 text-white">
+                  <th className="p-4 text-left">Factors</th>
+                  <th className="p-4">G1</th><th className="p-4">G2</th><th className="p-4">G3</th>
+                  <th className="p-4">G4</th><th className="p-4">G5</th><th className="p-4 bg-teal-600 font-bold">Our Study</th>
+                </tr>
+              </thead>
+              <tbody className="text-gray-700">
+                {[
+                  ["Hate Speech Detection", "✓", "✓", "✓", "✓", "✓", "✓"],
+                  ["Code-Mixed Handling", "✗", "✓", "✓", "✓", "✓", "✓"],
+                  ["Sarcasm / Implicit", "✓", "✓", "✓", "✓", "✗", "✓"],
+                  ["Emoji / Slang", "✓", "✗", "✗", "✓", "✗", "✓"],
+                  ["Explainability (LIME)", "✗", "✗", "✓", "✗", "✗", "✓"],
+                  ["Class Imbalance", "✗", "✓", "✓", "✗", "✗", "✓"],
+                  ["Real-Time Deployment", "✓", "✗", "✗", "✗", "✓", "✓"]
+                ].map((row, i) => (
+                  <tr key={i} className="border-t hover:bg-teal-50">
+                    <td className="p-4 font-medium">{row[0]}</td>
+                    {row.slice(1).map((cell, j) => (
+                      <td key={j} className="p-4 text-center text-xl">{cell}</td>
+                    ))}
                   </tr>
-                </thead>
-
-                <tbody className="text-gray-700">
-                  {[
-                    ["Hate Speech Detection", "✓", "✓", "✓", "✓", "✓", "✓"],
-                    ["Code-Mixed Handling", "✗", "✓", "✓", "✓", "✓", "✓"],
-                    ["Sarcasm / Implicit", "✓", "✓", "✓", "✓", "✗", "✓"],
-                    ["Emoji / Slang", "✓", "✗", "✗", "✓", "✗", "✓"],
-                    ["Explainability (LIME)", "✗", "✗", "✓", "✗", "✗", "✓"],
-                    ["Class Imbalance", "✗", "✓", "✓", "✗", "✗", "✓"],
-                    ["Real-Time Deployment", "✓", "✗", "✗", "✗", "✓", "✓"]
-                  ].map((row, i) => (
-                    <tr key={i} className="border-t hover:bg-teal-50 transition">
-                      <td className="p-4 font-medium">{row[0]}</td>
-                      {row.slice(1).map((cell, j) => (
-                        <td key={j} className="p-4 text-center text-xl">{cell}</td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                ))}
+              </tbody>
+            </table>
           </div>
 
         </div>
       </section>
 
       {/* ==================== METHODOLOGY ==================== */}
-      <section id="methodology" className="py-24 bg-gradient-to-b from-white to-teal-50">
-        <div className="max-w-5xl mx-auto px-8">
+      <section id="methodology" className="py-16 md:py-24 bg-gradient-to-b from-white to-teal-50">
+        <div className="max-w-5xl mx-auto px-6 md:px-8">
 
           {/* Heading */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <BrainCircuit className="w-10 h-10 text-teal-700" />
-              <h2 className="text-5xl font-bold text-teal-900">Methodology</h2>
+              <BrainCircuit className="w-9 h-9 md:w-10 md:h-10 text-teal-700" />
+              <h2 className="text-4xl md:text-5xl font-bold text-teal-900">Methodology</h2>
             </div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg px-4">
               A structured, experimental pipeline for Sinhala–Tamil–English code-mixed hate speech detection.
             </p>
           </div>
 
-          {/* Step Navigation */}
+          {/* Step Navigation - Better on Mobile */}
           <MethodologyTabs />
 
         </div>
       </section>
-      {/* ==================== RESULTS SECTION ==================== */}
-      <section id="results" className="py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-8">
-          <div className="flex items-center gap-4 justify-center mb-6">
-            <BarChart3 className="w-10 h-10 text-teal-600" />
-            <h2 className="text-5xl font-bold text-teal-900">Results & Impact</h2>
+
+      {/* ==================== RESULTS SECTION (Mobile Responsive) ==================== */}
+      <section id="results" className="py-16 md:py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6 md:px-8">
+
+          {/* Heading */}
+          <div className="flex items-center justify-center gap-3 mb-8 md:mb-12">
+            <BarChart3 className="w-9 h-9 md:w-10 md:h-10 text-teal-600" />
+            <h2 className="text-4xl md:text-5xl font-bold text-teal-900">Results & Impact</h2>
           </div>
-          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-16">
+
+          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12 text-base md:text-lg px-4">
             CM-SCALE (Tier-3) significantly outperforms baselines — achieving state-of-the-art performance on Sri Lankan code-mixed text.
           </p>
 
-          {/* Performance Chart */}
-          <div className="bg-white border border-teal-100 rounded-3xl p-10 mb-16">
-            <h3 className="text-2xl font-semibold text-teal-900 mb-8 text-center">Model Performance Comparison</h3>
-            <ResponsiveContainer width="100%" height={380}>
-              <BarChart data={performanceData}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="F1" fill="#14b8a6" name="Macro F1-Score" radius={8} />
-                <Bar dataKey="Accuracy" fill="#0f766e" name="Accuracy" radius={8} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-
-          {/* Key Metrics Cards */}
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-teal-50 p-10 rounded-3xl text-center">
-              <div className="text-6xl font-bold text-teal-700 mb-3">94.2%</div>
-              <div className="text-xl font-semibold">Macro F1-Score</div>
-              <div className="text-gray-600 mt-2">(Tier-3 CM-SCALE)</div>
-            </div>
-            <div className="bg-teal-50 p-10 rounded-3xl text-center">
-              <div className="text-6xl font-bold text-teal-700 mb-3">95.1%</div>
-              <div className="text-xl font-semibold">Accuracy</div>
-              <div className="text-gray-600 mt-2">on 47k real-world comments</div>
-            </div>
-            <div className="bg-teal-50 p-10 rounded-3xl text-center">
-              <div className="text-6xl font-bold text-teal-700 mb-3">+22%</div>
-              <div className="text-xl font-semibold">Improvement</div>
-              <div className="text-gray-600 mt-2">over traditional baselines</div>
+          {/* Performance Chart - Smaller on mobile */}
+          <div className="bg-white border border-teal-100 rounded-3xl p-6 md:p-10 mb-12 shadow-md">
+            <h3 className="text-xl md:text-2xl font-semibold text-teal-900 mb-8 text-center">Model Performance Comparison</h3>
+            <div className="h-72 md:h-96">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={performanceData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" tick={{ fontSize: 12 }} />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="F1" fill="#14b8a6" name="Macro F1-Score" radius={8} />
+                  <Bar dataKey="Accuracy" fill="#0f766e" name="Accuracy" radius={8} />
+                </BarChart>
+              </ResponsiveContainer>
             </div>
           </div>
 
-          <div className="mt-16 text-center text-gray-600">
-            <p className="text-lg">The CM-SCALE framework is now ready for real-time deployment on Facebook, Instagram & X.</p>
-            <p className="mt-4 font-medium text-teal-700">To the best of our knowledge, this is the first dedicated...</p>
+          {/* Key Metrics Cards - Stack on mobile */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-teal-50 p-8 md:p-10 rounded-3xl text-center shadow-sm">
+              <div className="text-5xl md:text-6xl font-bold text-teal-700 mb-3">94.2%</div>
+              <div className="text-lg font-semibold">Macro F1-Score</div>
+              <div className="text-gray-600 mt-1">(Tier-3 CM-SCALE)</div>
+            </div>
+
+            <div className="bg-teal-50 p-8 md:p-10 rounded-3xl text-center shadow-sm">
+              <div className="text-5xl md:text-6xl font-bold text-teal-700 mb-3">95.1%</div>
+              <div className="text-lg font-semibold">Accuracy</div>
+              <div className="text-gray-600 mt-1">on 47k real-world comments</div>
+            </div>
+
+            <div className="bg-teal-50 p-8 md:p-10 rounded-3xl text-center shadow-sm">
+              <div className="text-5xl md:text-6xl font-bold text-teal-700 mb-3">+22%</div>
+              <div className="text-lg font-semibold">Improvement</div>
+              <div className="text-gray-600 mt-1">over traditional baselines</div>
+            </div>
+          </div>
+
+          <div className="mt-16 text-center text-gray-600 px-4">
+            <p className="text-base md:text-lg">The CM-SCALE framework is now ready for real-time deployment on Facebook, Instagram & X.</p>
+            <p className="mt-4 font-medium text-teal-700">To the best of our knowledge, this is Sri Lanka’s first dedicated code-mixed hate speech detection system.</p>
           </div>
         </div>
       </section>
 
-      {/* LIVE DEMO SECTION */}
 
 
       {/* Team Section */}
@@ -593,8 +480,46 @@ function App() {
             Our Team & Supervisor
           </h2>
 
+          {/* ================= SUPERVISOR ================= */}
+          <div className="max-w-3xl mx-auto mb-20">
+            {[
+              { name: "Mrs. Sankani Heenkenda", field: "Academic Supervisor", index: "Lecturer", email: "sankaniheenkenda@sjp.ac.lk", image: "/images/sankani.png" }
+            ].map(member => (
+              <div
+                key={member.index}
+                className="bg-white p-10 rounded-2xl shadow-xl border-t-4 border-teal-600 text-center"
+              >
+
+                <div className="w-44 h-44 border-4 border-teal-200 rounded-full shadow-lg mx-auto mb-6 overflow-hidden">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                <h4 className="text-3xl font-semibold text-teal-900 mb-2">
+                  {member.name}
+                </h4>
+
+                <p className="text-lg text-teal-700 font-medium mb-1">
+                  {member.field}
+                </p>
+
+                <p className="text-gray-500 mb-3">
+                  {member.index}
+                </p>
+
+                <p className="text-gray-700 flex justify-center items-center gap-2">
+                  <Mail className="w-4 h-4" /> {member.email}
+                </p>
+
+              </div>
+            ))}
+          </div>
+
           {/* ================= TEAM MEMBERS ================= */}
-          <div className="grid md:grid-cols-3 gap-10 mb-20">
+          <div className="grid md:grid-cols-3 gap-10 ">
             {[
               { name: "M.S.K.P. Subasinghe", field: "Network Technology", index: "ICT/21/928", email: "ict21928@fot.sjp.ac.lk", image: "/images/kavindu.jpeg" },
               { name: "A.F. Asra", field: "Software Technology", index: "ICT/21/808", email: "ict21808@fot.sjp.ac.lk", image: "/images/ashra.jpeg" },
@@ -626,45 +551,6 @@ function App() {
                 </p>
 
                 <p className="text-gray-600 text-sm flex justify-center items-center gap-2">
-                  <Mail className="w-4 h-4" /> {member.email}
-                </p>
-
-              </div>
-            ))}
-          </div>
-
-
-          {/* ================= SUPERVISOR ================= */}
-          <div className="max-w-3xl mx-auto">
-            {[
-              { name: "Mrs. Sankani Heenkenda", field: "Academic Supervisor", index: "Lecturer", email: "sankaniheenkenda@sjp.ac.lk", image: "/images/sankani.png" }
-            ].map(member => (
-              <div
-                key={member.index}
-                className="bg-white p-10 rounded-2xl shadow-xl border-t-4 border-teal-600 text-center"
-              >
-
-                <div className="w-44 h-44 border-4 border-teal-200 rounded-full shadow-lg mx-auto mb-6 overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                <h4 className="text-3xl font-semibold text-teal-900 mb-2">
-                  {member.name}
-                </h4>
-
-                <p className="text-lg text-teal-700 font-medium mb-1">
-                  {member.field}
-                </p>
-
-                <p className="text-gray-500 mb-3">
-                  {member.index}
-                </p>
-
-                <p className="text-gray-700 flex justify-center items-center gap-2">
                   <Mail className="w-4 h-4" /> {member.email}
                 </p>
 
@@ -731,20 +617,6 @@ function App() {
           © 2026 CM-SCALE — Research Group 03
         </div>
       </footer>
-
-
-      {/* Demo Modal */}
-      {showDemo && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50" onClick={() => setShowDemo(false)}>
-          <div className="bg-white p-12 rounded-3xl max-w-md w-full text-center" onClick={e => e.stopPropagation()}>
-            <h3 className="text-3xl font-bold text-teal-800 mb-6">Live Demo</h3>
-            <p className="text-gray-600 mb-8">Your Tier-3 XLM-R model will be connected here next.</p>
-            <button onClick={() => setShowDemo(false)} className="bg-teal-700 text-white px-12 py-4 rounded-2xl font-semibold">
-              Close
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
