@@ -2,17 +2,14 @@
 
               precision    recall  f1-score   support
 
-    NON_HATE       0.93      0.68      0.78      5673
-        HATE       0.39      0.80      0.52      1458
+    NON_HATE       0.92      0.68      0.78      5673
+        HATE       0.38      0.77      0.51      1458
 
     accuracy                           0.70      7131
-   macro avg       0.66      0.74      0.65      7131
-weighted avg       0.82      0.70      0.73      7131
-
-
-Best C: 1
-Accuracy: 0.7030
+   macro avg       0.65      0.73      0.65      7131
+weighted avg       0.81      0.70      0.73      7131
+Accuracy: 0.7010
 
 Confusion Matrix:
-[[3851 1822]
- [ 296 1162]]
+[[3882 1791]
+ [ 341 1117]]
