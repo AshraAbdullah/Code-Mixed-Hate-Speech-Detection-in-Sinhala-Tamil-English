@@ -10,7 +10,6 @@ function App() {
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -19,78 +18,39 @@ function App() {
           }
         });
       },
-      {
-        rootMargin: "-40% 0px -55% 0px",
-        threshold: 0
-      }
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
     );
 
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
-
+    sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
 
   const performanceData = [
-    { name: "Tier 1", F1: 72, Accuracy: 74 },
-    { name: "Tier 2", F1: 85, Accuracy: 87 },
-    { name: "Tier 3 (CM-SCALE)", F1: 94.2, Accuracy: 95.1 }
+    { name: "Tier 1", F1: 65, Accuracy: 79 },
+    { name: "Tier 2", F1: 65, Accuracy: 70 },
+    { name: "Tier 3 (CM-SCALE)", F1: 71.8, Accuracy: 81.25 }
   ];
 
-  <motion.section
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    transition={{ duration: 0.6 }}
-    viewport={{ once: true }}
-  ></motion.section>
-
   function AboutTabs() {
-    const [active, setActive] = useState("motivation")
-
+    const [active, setActive] = useState("motivation");
     return (
       <div className="mb-12 md:mb-20">
         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-10">
-          <button
-            onClick={() => setActive("motivation")}
-            className={`px-8 py-4 rounded-full font-medium transition text-base
-              ${active === "motivation" ? "bg-teal-700 text-white" : "bg-white border border-teal-200 text-teal-700 hover:bg-teal-50"}`}
-          >
-            Motivation
-          </button>
-
-          <button
-            onClick={() => setActive("problem")}
-            className={`px-8 py-4 rounded-full font-medium transition text-base
-              ${active === "problem" ? "bg-teal-700 text-white" : "bg-white border border-teal-200 text-teal-700 hover:bg-teal-50"}`}
-          >
-            Problem Statement
-          </button>
+          <button onClick={() => setActive("motivation")} className={`px-8 py-4 rounded-full font-medium transition text-base ${active === "motivation" ? "bg-teal-700 text-white" : "bg-white border border-teal-200 text-teal-700 hover:bg-teal-50"}`}>Motivation</button>
+          <button onClick={() => setActive("problem")} className={`px-8 py-4 rounded-full font-medium transition text-base ${active === "problem" ? "bg-teal-700 text-white" : "bg-white border border-teal-200 text-teal-700 hover:bg-teal-50"}`}>Problem Statement</button>
         </div>
 
-        <motion.div
-          key={active}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="bg-white p-8 md:p-12 rounded-2xl shadow-lg max-w-4xl mx-auto text-gray-700 leading-relaxed text-base md:text-lg"
-        >
+        <motion.div key={active} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="bg-white p-8 md:p-12 rounded-2xl shadow-lg max-w-4xl mx-auto text-gray-700 leading-relaxed text-base md:text-lg">
           {active === "motivation" ? (
-            <>Hate speech in Sri Lanka has intensified through code-mixed Sinhala–Tamil–English content. Events such as the 2018 riots, 2019 Easter attacks, and 2022 unrest demonstrate how rapidly toxic narratives spread online. Existing moderation systems fail to capture local linguistic nuance.</>
+            <>Hate speech on social media has emerged as a critical societal issue in Sri Lanka. With over 12.4 million internet users and 35% social media penetration, platforms like Facebook, Instagram, and X are rife with toxic content targeting ethnic groups. Code-mixed Sinhala-Tamil-English text is prevalent but extremely challenging for existing tools.</>
           ) : (
             <>
-              Current detectors are English-centric and struggle with:
-              <ul className="mt-6 space-y-3 list-disc pl-5">
-                <li>Sinhala–Tamil–English code-mixing</li>
-                <li>Slang, sarcasm, emojis & Romanized text</li>
-                <li>Low-resource language constraints</li>
-              </ul>
-              <p className="mt-6 font-medium text-teal-700">Result: High false negatives and unsafe digital environments.</p>
+              Existing hate speech detection systems are predominantly English-centric and fail on low-resource languages. Key challenges include scarcity of annotated code-mixed datasets, difficulty processing slang, sarcasm, emojis, and Romanized text, and poor performance of monolingual models on multilingual inputs. This results in high false negatives.
             </>
           )}
         </motion.div>
       </div>
-    )
+    );
   }
 
   function ObjectivesSection() {
@@ -100,51 +60,41 @@ function App() {
           <Target className="w-8 h-8 text-teal-700" />
           <h3 className="text-3xl md:text-4xl font-semibold text-teal-900">Objectives</h3>
         </div>
-
         <div className="grid md:grid-cols-2 gap-8">
           <motion.div whileHover={{ scale: 1.02 }} className="bg-white p-8 md:p-10 rounded-2xl shadow-md border-l-4 border-teal-600">
             <h4 className="text-lg md:text-xl font-semibold text-teal-700 mb-4">Main Objective</h4>
-            Develop a robust web-based hate speech detection system for Sinhala–Tamil–English code-mixed text using advanced ML & NLP.
+            To design an effective hate speech detection system capable of accurately classifying code-mixed social media text in Sinhala–Tamil–English using progressive machine learning and transformer-based NLP techniques.
           </motion.div>
-
           <motion.div whileHover={{ scale: 1.02 }} className="bg-white p-8 md:p-10 rounded-2xl shadow-md">
-            <h4 className="text-lg md:text-xl font-semibold text-teal-700 mb-4">Specific Goals</h4>
+            <h4 className="text-lg md:text-xl font-semibold text-teal-700 mb-4">Specific Objectives</h4>
             <ul className="space-y-3 text-gray-700 text-base">
-              <li>• Build unified 47K+ dataset</li>
-              <li>• Compare Tier-1, Tier-2 & Tier-3 models</li>
-              <li>• Propose CM-SCALE framework</li>
-              <li>• Deploy real-time web system</li>
+              <li>• Build, curate, and preprocess a unified 47,000+ code-mixed dataset</li>
+              <li>• Develop and compare Tier-1, Tier-2, and Tier-3 (CM-SCALE) models</li>
+              <li>• Propose novel CM-SCALE framework with LoRA and contrastive learning</li>
+              <li>• Deploy a real-time web-based detection system</li>
             </ul>
           </motion.div>
         </div>
       </div>
-    )
+    );
   }
 
   function ScopeSection() {
     return (
-      <div className="mb-12">
+      <div>
         <h3 className="text-3xl md:text-4xl font-semibold text-center text-teal-900 mb-10">Project Scope</h3>
-
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-green-50 p-8 md:p-10 rounded-2xl shadow-md">
-            <div className="flex items-center gap-3 mb-6">
-              <CheckCircle2 className="text-green-600 w-6 h-6" />
-              <h4 className="text-xl font-semibold text-green-700">In Scope</h4>
-            </div>
+            <div className="flex items-center gap-3 mb-6"><CheckCircle2 className="text-green-600 w-6 h-6" /><h4 className="text-xl font-semibold text-green-700">In Scope</h4></div>
             <ul className="space-y-3 text-gray-700 text-base">
-              <li>• Sinhala–Tamil–English code-mixed text</li>
-              <li>• Binary classification</li>
-              <li>• Three-tier modeling (CM-SCALE focus)</li>
-              <li>• Real-time web-based deployment</li>
+              <li>• Sinhala–Tamil–English code-mixed text from Facebook, Instagram &amp; X</li>
+              <li>• Binary classification (Hate vs Non-Hate)</li>
+              <li>• Three-tier modeling with focus on Tier-3 (CM-SCALE)</li>
+              <li>• Real-time web-based detection system</li>
             </ul>
           </div>
-
           <div className="bg-red-50 p-8 md:p-10 rounded-2xl shadow-md">
-            <div className="flex items-center gap-3 mb-6">
-              <XCircle className="text-red-600 w-6 h-6" />
-              <h4 className="text-xl font-semibold text-red-700">Out of Scope</h4>
-            </div>
+            <div className="flex items-center gap-3 mb-6"><XCircle className="text-red-600 w-6 h-6" /><h4 className="text-xl font-semibold text-red-700">Out of Scope</h4></div>
             <ul className="space-y-3 text-gray-700 text-base">
               <li>• Image/audio hate detection</li>
               <li>• Full production moderation infrastructure</li>
@@ -152,52 +102,133 @@ function App() {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   function MethodologyTabs() {
-    const [active, setActive] = useState(0)
-
+    const [active, setActive] = useState(0);
     const steps = [
-      { title: "Datasets", icon: <Database className="w-5 h-5" />, content: <>Aggregated 47,000+ real-world Sinhala–Tamil–English code-mixed comments from Facebook, Instagram, and YouTube, ensuring diversity and representativeness.</> },
-      { title: "Annotation", icon: <FileCheck2 className="w-5 h-5" />, content: <>Expert annotators labeled data for hate speech, non-hate, and ambiguous cases, with inter-annotator agreement checks for quality.</> },
-      { title: "Preprocessing", icon: <Settings2 className="w-5 h-5" />, content: <>Text normalization, emoji/slang handling, code-mix detection, and Romanization conversion to prepare data for modeling.</> },
-      { title: "Modeling Framework", icon: <BrainCircuit className="w-5 h-5" />, content: <>Compared traditional ML, deep learning, and transformer models; proposed CM-SCALE (fine-tuned XLM-R) for best performance.</> }
-    ]
+      {
+        title: "Datasets",
+        icon: <Database className="w-5 h-5" />,
+        content: (
+          <div className="space-y-4">
+            <p className="font-semibold text-teal-800">
+              Multi-Source Data Collection
+            </p>
+
+            <ul className="space-y-2">
+              <li>• SOLD dataset (~10,000 Sinhala Twitter comments)</li>
+              <li>• Dravidian code-mixed datasets (Tamil–English)</li>
+              <li>• Custom Instagram comments (~1,000+ samples)</li>
+            </ul>
+
+            <div className="bg-teal-50 p-4 rounded-xl">
+              <p>
+                <strong>Total Dataset:</strong> ~47,000 code-mixed samples
+              </p>
+              <p className="text-sm text-gray-600 mt-1">
+                Data split: 70% Training • 15% Validation • 15% Testing
+              </p>
+            </div>
+          </div>
+        )
+      },
+
+      {
+        title: "Annotation",
+        icon: <FileCheck2 className="w-5 h-5" />,
+        content: (
+          <div className="space-y-4">
+            <p className="font-semibold text-teal-800">
+              Annotation Strategy
+            </p>
+
+            <ul className="space-y-2">
+              <li>• Binary classification: Hate vs Non-Hate</li>
+              <li>• Two independent annotators with one adjudicator</li>
+              <li>• Inter-annotator agreement measured using Cohen’s Kappa (&gt; 0.7)</li>
+            </ul>
+
+            <div className="bg-teal-50 p-4 rounded-xl">
+              <p>
+                Ethical considerations ensured by using only publicly available data and removing personal identifiers (PII).
+              </p>
+            </div>
+          </div>
+        )
+      },
+
+      {
+        title: "Preprocessing",
+        icon: <Settings2 className="w-5 h-5" />,
+        content: (
+          <div className="space-y-4">
+            <p className="font-semibold text-teal-800">
+              Text Processing Pipeline
+            </p>
+
+            <ul className="space-y-2">
+              <li>• Token-level language identification (Sinhala / Tamil / English)</li>
+              <li>• Romanized text normalization</li>
+              <li>• Preservation of emojis, hashtags, and slang expressions</li>
+              <li>• Noise removal and text standardization</li>
+            </ul>
+
+            <div className="bg-teal-50 p-4 rounded-xl">
+              <p>
+                Class imbalance handled using augmentation and weighted learning techniques.
+              </p>
+            </div>
+          </div>
+        )
+      },
+
+      {
+        title: "Modeling Framework",
+        icon: <BrainCircuit className="w-5 h-5" />,
+        content: (
+          <div className="space-y-4">
+            <p className="font-semibold text-teal-800">
+              CM-SCALE Three-Tier Framework
+            </p>
+            <p className="text-gray-600 text-sm md:text-base">
+              Progressive Modeling Approach
+            </p>
+
+            <div className="space-y-3">
+              <div>
+                <strong>Tier 1:</strong> Classical machine learning baselines (TF-IDF + balanced Logistic Regression & Linear SVM)
+              </div>
+
+              <div>
+                <strong>Tier 2:</strong> Hybrid semantic model (LaBSE multilingual sentence embeddings + cost-sensitive Linear SVM)
+              </div>
+
+              <div className="bg-teal-50 p-4 rounded-xl">
+                <strong className="text-teal-700">Tier 3:</strong> Advanced transformer-based models (mBERT, MuRIL-base, XLM-R-large) enhanced with LoRA, custom Focal Loss, and XLMR_MSD architecture
+              </div>
+            </div>
+          </div>
+        )
+      }
+    ];
 
     return (
       <div>
-        {/* Buttons - Stack on mobile */}
         <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 md:mb-12">
           {steps.map((step, index) => (
-            <button
-              key={index}
-              onClick={() => setActive(index)}
-              className={`flex items-center gap-2 px-5 md:px-6 py-3 md:py-3.5 rounded-full text-sm md:text-base font-medium transition 
-                ${active === index
-                  ? "bg-teal-700 text-white shadow-lg"
-                  : "bg-white text-teal-700 border border-teal-200 hover:bg-teal-50"}`}
-            >
-              {step.icon}
-              {step.title}
+            <button key={index} onClick={() => setActive(index)} className={`flex items-center gap-2 px-5 md:px-6 py-3 md:py-3.5 rounded-full text-sm md:text-base font-medium transition ${active === index ? "bg-teal-700 text-white shadow-lg" : "bg-white text-teal-700 border border-teal-200 hover:bg-teal-50"}`}>
+              {step.icon} {step.title}
             </button>
           ))}
         </div>
-
-        {/* Content - Better padding on mobile */}
-        <motion.div
-          key={active}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="max-w-3xl mx-auto bg-white p-6 md:p-10 rounded-2xl shadow-md text-gray-700 text-base md:text-lg"
-        >
+        <motion.div key={active} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="max-w-3xl mx-auto bg-white p-6 md:p-10 rounded-2xl shadow-md text-gray-700 text-base md:text-lg">
           {steps[active].content}
         </motion.div>
       </div>
-    )
+    );
   }
-
 
 
 
@@ -223,7 +254,7 @@ function App() {
           </div>
 
           {/* Download Button (Desktop) */}
-          <a href="/docs/Thesis.pdf" download="CM-SCALE_Thesis.pdf"
+          <a href="/docs/final thesis - G03.pdf" download="CM-SCALE_Thesis.pdf"
             className="hidden md:flex items-center gap-2 bg-teal-700 hover:bg-teal-800 text-white px-7 py-3.5 rounded-2xl text-sm font-semibold transition">
             <Download className="w-4 h-4" />
             Download Thesis
@@ -269,6 +300,12 @@ function App() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-5 justify-center px-6">
+          <button
+            onClick={() => setShowDemo(true)}
+            className="bg-teal-600 hover:bg-teal-900 text-white font-semibold text-lg md:text-xl px-12 py-4 rounded-2xl transition-all shadow-lg"
+          >
+            Try Live Demo
+          </button>
           <a
             href="#results"
             className="border-2 border-teal-700 text-teal-700 hover:bg-teal-600 hover:text-white font-semibold text-lg md:text-xl px-12 py-4 rounded-2xl transition-all"
@@ -372,7 +409,6 @@ function App() {
                   ["Code-Mixed Handling", "✗", "✓", "✓", "✓", "✓", "✓"],
                   ["Sarcasm / Implicit", "✓", "✓", "✓", "✓", "✗", "✓"],
                   ["Emoji / Slang", "✓", "✗", "✗", "✓", "✗", "✓"],
-                  ["Explainability (LIME)", "✗", "✗", "✓", "✗", "✗", "✓"],
                   ["Class Imbalance", "✗", "✓", "✓", "✗", "✗", "✓"],
                   ["Real-Time Deployment", "✓", "✗", "✗", "✗", "✓", "✓"]
                 ].map((row, i) => (
@@ -411,6 +447,84 @@ function App() {
         </div>
       </section>
 
+      {/* ==================== TECH STACK ==================== */}
+      <section id="tech" className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-8">
+
+          {/* Heading */}
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-teal-900">Technology Stack</h2>
+            <p className="text-gray-600 mt-4">
+              Tools and frameworks used across the system pipeline
+            </p>
+          </div>
+
+          {/* ================= MODEL DEV ================= */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-semibold text-teal-800 mb-8 text-center">
+              Model Development
+            </h3>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+              {[
+                { title: "Python 3.10", icon: "🐍" },
+                { title: "PyTorch", icon: "🔥" },
+                { title: "Hugging Face", icon: "🤗" },
+                { title: "LoRA (PEFT)", icon: "⚙️" },
+                { title: "XLM-R / mBERT / MuRIL", icon: "🧠" },
+                { title: "XLMR_MSD", icon: "🧩" },
+                { title: "Focal Loss", icon: "🎯" },
+                { title: "SVM / Logistic Reg", icon: "📊" },
+                { title: "LaBSE", icon: "🔤" },
+                { title: "Google Colab", icon: "☁️" },
+                { title: "Pandas", icon: "🐼" },
+                { title: "NumPy", icon: "🔢" }
+              ].map((tech, i) => (
+                <div
+                  key={i}
+                  className="bg-teal-50 p-5 rounded-xl shadow-sm hover:shadow-md transition text-center"
+                >
+                  <div className="text-3xl mb-2">{tech.icon}</div>
+                  <p className="text-sm font-medium text-gray-700">{tech.title}</p>
+                </div>
+              ))}
+
+            </div>
+          </div>
+
+          {/* ================= DEPLOYMENT ================= */}
+          <div>
+            <h3 className="text-2xl font-semibold text-teal-800 mb-8 text-center">
+              Deployment & Application
+            </h3>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+              {[
+                { title: "Streamlit", icon: "🌐" },
+                { title: "Hugging Face Spaces", icon: "🚀" },
+                { title: "Custom CSS UI", icon: "🎨" },
+                { title: "Google Fonts", icon: "🔤" },
+                { title: "Model Serving", icon: "⚡" },
+                { title: "@st.cache_resource", icon: "💾" },
+                { title: "Multilingual Input", icon: "🌍" }
+              ].map((tech, i) => (
+                <div
+                  key={i}
+                  className="bg-teal-50 p-5 rounded-xl shadow-sm hover:shadow-md transition text-center"
+                >
+                  <div className="text-3xl mb-2">{tech.icon}</div>
+                  <p className="text-sm font-medium text-gray-700">{tech.title}</p>
+                </div>
+              ))}
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* ==================== RESULTS SECTION (Mobile Responsive) ==================== */}
       <section id="results" className="py-16 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6 md:px-8">
@@ -445,13 +559,13 @@ function App() {
           {/* Key Metrics Cards - Stack on mobile */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-teal-50 p-8 md:p-10 rounded-3xl text-center shadow-sm">
-              <div className="text-5xl md:text-6xl font-bold text-teal-700 mb-3">94.2%</div>
+              <div className="text-5xl md:text-6xl font-bold text-teal-700 mb-3">71.8%</div>
               <div className="text-lg font-semibold">Macro F1-Score</div>
               <div className="text-gray-600 mt-1">(Tier-3 CM-SCALE)</div>
             </div>
 
             <div className="bg-teal-50 p-8 md:p-10 rounded-3xl text-center shadow-sm">
-              <div className="text-5xl md:text-6xl font-bold text-teal-700 mb-3">95.1%</div>
+              <div className="text-5xl md:text-6xl font-bold text-teal-700 mb-3">81.25%</div>
               <div className="text-lg font-semibold">Accuracy</div>
               <div className="text-gray-600 mt-1">on 47k real-world comments</div>
             </div>
@@ -464,8 +578,8 @@ function App() {
           </div>
 
           <div className="mt-16 text-center text-gray-600 px-4">
-            <p className="text-base md:text-lg">The CM-SCALE framework is now ready for real-time deployment on Facebook, Instagram & X.</p>
-            <p className="mt-4 font-medium text-teal-700">To the best of our knowledge, this is Sri Lanka’s first dedicated code-mixed hate speech detection system.</p>
+            <p className="text-base md:text-lg">The CM-SCALE framework provides an effective approach for detecting hate speech in code-mixed social media content.</p>
+            <p className="mt-4 font-medium text-teal-700">To the best of our knowledge, this study contributes to the development of code-mixed hate speech detection for the Sri Lankan context.</p>
           </div>
         </div>
       </section>
@@ -617,6 +731,31 @@ function App() {
           © 2026 CM-SCALE — Research Group 03
         </div>
       </footer>
+
+      {/* Demo Modal */}
+      {showDemo && (
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50" onClick={() => setShowDemo(false)}>
+          <div className="bg-white p-12 rounded-3xl max-w-md w-full text-center" onClick={e => e.stopPropagation()}>
+            <h3 className="text-3xl font-bold text-teal-800 mb-6">Live Demo</h3>
+            <p className="text-gray-600 mb-8">Click the following link to get a feel for how our model works:</p>
+            <a
+              href="https://azra31-hateguard-lk.hf.space"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-teal-700 font-semibold text-lg hover:underline mb-6"
+            >
+              hateguard-lk
+            </a>
+            <br />
+            <button
+              onClick={() => setShowDemo(false)}
+              className="bg-teal-700 text-white px-12 py-3 rounded-2xl font-semibold hover:bg-teal-800 transition"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
