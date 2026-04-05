@@ -70,7 +70,7 @@ function App() {
             <ul className="space-y-3 text-gray-700 text-base">
               <li>• Build, curate, and preprocess a unified 47,000+ code-mixed dataset</li>
               <li>• Develop and compare Tier-1, Tier-2, and Tier-3 (CM-SCALE) models</li>
-              <li>• Propose novel CM-SCALE framework with LoRA and contrastive learning</li>
+              <li>• Propose novel CM-SCALE framework with LoRA and focal loss</li>
               <li>• Deploy a real-time web-based detection system</li>
             </ul>
           </motion.div>
@@ -351,10 +351,10 @@ function App() {
           {/* Group Cards - Stack on mobile */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
             {[
-              { g: "G1", title: "Traditional ML", desc: "SVM, Logistic Regression, TF-IDF (66–71% accuracy)" },
-              { g: "G2", title: "Deep Learning", desc: "CNN, LSTM, BiGRU (F1 up to 0.93)" },
-              { g: "G3", title: "Transformers", desc: "XLM-R, MuRIL, mBERT (macro-F1 0.73–0.94)" },
-              { g: "G4", title: "Ensemble", desc: "Hybrid models (up to 76% accuracy)" },
+              { g: "G1", title: "Traditional ML", desc: "SVM, Logistic Regression, TF-IDF " },
+              { g: "G2", title: "Deep Learning", desc: "CNN, LSTM, BiGRU" },
+              { g: "G3", title: "Transformers", desc: "XLM-R, MuRIL, mBERT" },
+              { g: "G4", title: "Ensemble", desc: "Hybrid models" },
               { g: "G5", title: "Hybrid / Federated", desc: "MultiFED, LoRA, contrastive learning" }
             ].map((group) => (
               <div
@@ -468,25 +468,25 @@ function App() {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
               {[
-                { title: "Python 3.10", icon: "🐍" },
-                { title: "PyTorch", icon: "🔥" },
-                { title: "Hugging Face", icon: "🤗" },
-                { title: "LoRA (PEFT)", icon: "⚙️" },
-                { title: "XLM-R / mBERT / MuRIL", icon: "🧠" },
-                { title: "XLMR_MSD", icon: "🧩" },
-                { title: "Focal Loss", icon: "🎯" },
-                { title: "SVM / Logistic Reg", icon: "📊" },
-                { title: "LaBSE", icon: "🔤" },
-                { title: "Google Colab", icon: "☁️" },
-                { title: "Pandas", icon: "🐼" },
-                { title: "NumPy", icon: "🔢" }
+                { title: "Python 3.10" },
+                { title: "PyTorch" },
+                { title: "Hugging Face" },
+                { title: "LoRA (PEFT)" },
+                { title: "XLM-R / mBERT / MuRIL" },
+                { title: "XLMR_MSD" },
+                { title: "Focal Loss" },
+                { title: "SVM / Logistic Reg" },
+                { title: "LaBSE" },
+                { title: "Google Colab"},
+                { title: "Pandas" },
+                { title: "NumPy" }
               ].map((tech, i) => (
                 <div
                   key={i}
                   className="bg-teal-50 p-5 rounded-xl shadow-sm hover:shadow-md transition text-center"
                 >
-                  <div className="text-3xl mb-2">{tech.icon}</div>
-                  <p className="text-sm font-medium text-gray-700">{tech.title}</p>
+                  
+                  <p className="text-m font-medium text-gray-700">{tech.title}</p>
                 </div>
               ))}
 
@@ -502,20 +502,14 @@ function App() {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
               {[
-                { title: "Streamlit", icon: "🌐" },
-                { title: "Hugging Face Spaces", icon: "🚀" },
-                { title: "Custom CSS UI", icon: "🎨" },
-                { title: "Google Fonts", icon: "🔤" },
-                { title: "Model Serving", icon: "⚡" },
-                { title: "@st.cache_resource", icon: "💾" },
-                { title: "Multilingual Input", icon: "🌍" }
+                { title: "Streamlit" },
+                { title: "Hugging Face Spaces" },
               ].map((tech, i) => (
                 <div
                   key={i}
                   className="bg-teal-50 p-5 rounded-xl shadow-sm hover:shadow-md transition text-center"
                 >
-                  <div className="text-3xl mb-2">{tech.icon}</div>
-                  <p className="text-sm font-medium text-gray-700">{tech.title}</p>
+                  <p className="text-md font-medium text-gray-700">{tech.title}</p>
                 </div>
               ))}
 
